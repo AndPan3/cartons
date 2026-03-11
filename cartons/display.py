@@ -15,4 +15,3 @@ def draw(base_url, lon1, lat1, lon2, lat2):
         foliumcoords, color='#FF0000', weight=5).add_to(m)
     
     return m
-    
