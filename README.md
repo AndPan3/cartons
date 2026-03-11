@@ -11,7 +11,7 @@ It is designed to be simple, lightweight, and easy to integrate into scripts or 
 ---
 
 # Installation
--not yet-
+Installation from PyPI availiable since 11.03.2026
 Install from PyPI:
 
 ```bash
