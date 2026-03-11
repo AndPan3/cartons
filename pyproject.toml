@@ -4,11 +4,25 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cartons"
-version = "1.0.0"
+version = "1.0.1"
 description = "Simple OSRM routing and Folium map drawing toolkit"
+readme = "README.md"
 requires-python = ">=3.7"
+
+keywords = ["osrm", "routing", "maps", "folium", "geospatial"]
 
 dependencies = [
   "routingpy",
   "folium"
 ]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://github.com/AndPan3/cartons"
+Source = "https://github.com/AndPan3/cartons"
+Issues = "https://github.com/AndPan3/cartons/issues"
