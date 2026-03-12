@@ -1,59 +1,30 @@
 # cartons
 
-A small Python toolkit for **routing and map visualization**.
+A lightweight Python toolkit for **routing and map visualization**.
 
-`cartons` calculates routes using **OSRM** (via `routingpy`) and renders them on an **interactive Leaflet map** using `folium`.
+`cartons` calculates routes using **OSRM (Open Source Routing Machine)** and renders them on interactive maps using **Folium**. With only a few lines of Python, you can compute a route between two coordinates and generate an HTML map displaying the route.
 
-With only a few lines of code you can compute a route between two coordinates and generate an HTML map displaying the route.
-
-The library is designed to be **simple, lightweight, and easy to integrate into scripts or small projects.**
-
----
-
-## Demo
-
-Live demo:
-
-https://router.project-osrm.org
-
-This public OSRM server is used in the examples to calculate routes.
+![Route Example](img/img1.png)
 
 ---
 
 ## Features
 
-- Simple interface for route calculation
-- Interactive map rendering
-- Uses the OSRM routing engine
-- Lightweight with minimal dependencies
-- Generates shareable HTML maps
+- Simple routing between geographic coordinates
+- Interactive map visualization
+- Lightweight and easy to integrate into scripts
+- Minimal code required
+- Built on top of OSRM and Folium
 
 ---
 
 ## Installation
 
-`cartons` is available on **PyPI**.
-
-### Install from PyPI
+Install via pip:
 
 ```bash
 pip install cartons
 ```
-
-### Install from source
-
-```bash
-git clone https://github.com/yourname/cartons.git
-cd cartons
-pip install -e .
-```
-
-### Dependencies
-
-- routingpy
-- folium
-
-These will be installed automatically when installing the package.
 
 ---
 
@@ -61,108 +32,158 @@ These will be installed automatically when installing the package.
 
 ```python
 import cartons
+#if you want to see the map for fun, open it using the Webbrowser module
+import webbrowser
 
+# Bern → Zürich
 m = cartons.draw(
     "https://router.project-osrm.org",
-    8.5417, 47.3769,
-    8.55, 47.38
+    7.4442153, 46.94686,
+    8.5431302, 47.3668725,
+    "red",5
 )
 
-m.save("route.html")
+filename = "route.html"
+
+m.save(filename)
+webbrowser.open(filename)
 ```
 
-This generates an **interactive HTML map** showing the calculated route.
+This generates an interactive HTML map showing the route.
 
-Open the generated file in a browser to view the map.
+![Route Zürich-Bern Example](img/img2.png)
 
 ---
 
-## Project Structure
+## How It Works
 
-```text
-cartons/
-├── routing.py
-├── display.py
-└── __init__.py
-```
-
-### routing.py
-
-Handles communication with the **OSRM routing engine** using `routingpy`.
-
-It sends coordinates to the routing server and returns the routing response.
-
----
-
-### display.py
-
-Responsible for rendering the route on a **Leaflet map** using `folium`.
-
-OSRM returns coordinates in the format:
-
-```text
-[lon, lat]
-```
-
-Since **Folium expects `[lat, lon]`**, the coordinates are converted before drawing the route.
-
----
-
-## Public OSRM Server
-
-Examples use the public OSRM demo server:
+cartons connects to an **OSRM routing server** to calculate routes and renders them using **Folium**.
 
 ```
-https://router.project-osrm.org
+Coordinates
+    ↓
+cartons routing
+    ↓
+OSRM route calculation
+    ↓
+route geometry
+    ↓
+Folium map rendering
+    ↓
+Interactive HTML map
 ```
-
-This server is suitable for:
-
-- testing
-- small scripts
-- experimentation
-
-For **production use**, running your own OSRM server is recommended.
 
 ---
 
 ## API
 
-### draw(base_url, lon1, lat1, lon2, lat2, col="blue", weight=5)
+### draw()
 
-Calculate a route and return a `folium.Map` object.
+Creates a route and returns a Folium map.
 
-#### Parameters
+```python
+draw(base_url, lon1, lat1, lon2, lat2, color="blue", weight=5)
+```
 
 | Parameter | Description |
 |----------|-------------|
-| base_url | OSRM server URL |
-| lon1 | Start longitude |
-| lat1 | Start latitude |
-| lon2 | Destination longitude |
-| lat2 | Destination latitude |
-| col | Route color |
-| weight | Line thickness |
+| base_url | OSRM routing server URL |
+| lon1 | Longitude of starting point |
+| lat1 | Latitude of starting point |
+| lon2 | Longitude of destination |
+| lat2 | Latitude of destination |
+| color | Route line color |
+| weight | Route line thickness |
 
-#### Returns
+Returns:
 
 ```
 folium.Map
 ```
 
+You can then save or modify the map using Folium.
+
+Example:
+
+```python
+map = cartons.draw(...)
+map.save("route.html")
+```
+
 ---
 
-## Goals
+## Example Output
 
-`cartons` aims to provide:
+The generated map is a fully interactive **Leaflet map**.
 
-- a **simple routing interface**
-- **quick map visualization**
-- **minimal dependencies**
-- easy integration into **Python scripts**
+Features include:
+
+- Zoom and pan
+- Inspect the route visually
+- Export as an HTML file
+- Embed into web pages
+
+![Map Zoomed on Bern in Bern-Zürich Route](img/img3.png)
+
+---
+
+## Use Cases
+
+cartons can be useful for:
+
+- route visualization
+- travel route maps
+- logistics planning
+- GPS data analysis
+- small mapping tools
+- data science experiments
+
+---
+
+## Development
+
+Clone the repository:
+
+```bash
+git clone https://github.com/AndPan3/cartons.git
+cd cartons
+```
+
+Install in development mode:
+
+```bash
+pip install -e .
+```
+
+---
+
+## Contributing
+
+Contributions are welcome.
+
+If you find a bug or have ideas for improvements:
+
+1. Open an issue
+2. Submit a pull request
 
 ---
 
 ## License
 
 MIT License
+
+---
+
+## Author
+
+**AndPan3**
+
+---
+
+## Acknowledgements
+
+This project uses:
+
+- OSRM for routing
+- Folium for map visualization
+- Leaflet.js for interactive maps
