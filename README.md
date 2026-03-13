@@ -40,7 +40,7 @@ m = cartons.draw(
     "https://router.project-osrm.org",
     7.4442153, 46.94686,
     8.5431302, 47.3668725,
-    "red",5,tiles="OpenStreetMap"
+    "red",5,"OpenStreetMap","car"
 )
 
 filename = "route.html"
@@ -95,7 +95,7 @@ draw(base_url, lon1, lat1, lon2, lat2, color="blue", weight=5,tiles="OpenStreetM
 | color | Route line color |
 | weight | Route line thickness |
 | tiles | Map tiles |
-| transportation | transportation mode for route generation|
+| transport | transportation mode for route generation|
 
 Returns:
 
@@ -125,7 +125,7 @@ Features include:
 - Export as an HTML file
 - Embed into web pages
 
-![Map Zoomed on Bern in Bern-Zürich Route](img/img3.png)
+![Map Zoomed on Luzern in East-West Luzern Route](img/img3.png)
 
 ---
 

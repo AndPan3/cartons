@@ -1,7 +1,7 @@
 import cartons
 import webbrowser
-#Aargau-Zürich
-map=cartons.draw("https://router.project-osrm.org",8.21599,47.47906,8.543130,47.3668725,"red",)
+#Zürich-Geneva
+map=cartons.draw("https://router.project-osrm.org",8.5431473,47.3669154,6.1426172,46.2086997,"red","5","OpenStreetMap","car")
 filename = "route.html"
 map.save(filename)
 webbrowser.open(filename)
