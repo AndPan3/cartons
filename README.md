@@ -40,7 +40,7 @@ m = cartons.draw(
     "https://router.project-osrm.org",
     7.4442153, 46.94686,
     8.5431302, 47.3668725,
-    "red",5
+    "red",5,tiles="OpenStreetMap"
 )
 
 filename = "route.html"
@@ -82,7 +82,7 @@ Interactive HTML map
 Creates a route and returns a Folium map.
 
 ```python
-draw(base_url, lon1, lat1, lon2, lat2, color="blue", weight=5)
+draw(base_url, lon1, lat1, lon2, lat2, color="blue", weight=5,tiles="OpenStreetMap",transport="car")
 ```
 
 | Parameter | Description |
@@ -94,6 +94,8 @@ draw(base_url, lon1, lat1, lon2, lat2, color="blue", weight=5)
 | lat2 | Latitude of destination |
 | color | Route line color |
 | weight | Route line thickness |
+| tiles | Map tiles |
+| transportation | transportation mode for route generation|
 
 Returns:
 
@@ -114,7 +116,7 @@ map.save("route.html")
 
 ## Example Output
 
-The generated map is a fully interactive **Leaflet map**.
+The generated map is fully interactive.
 
 Features include:
 
@@ -186,4 +188,3 @@ This project uses:
 
 - OSRM for routing
 - Folium for map visualization
-- Leaflet.js for interactive maps
