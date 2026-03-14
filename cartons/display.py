@@ -1,6 +1,6 @@
 from .routing import get_route
 import folium
-def draw(base_url, lon1, lat1, lon2, lat2, col="blue", weight=5,tiles="OpenStreetMap", transport="car"):
+def draw(base_url, lon1, lat1, lon2, lat2, col="blue", weight=5,tiles="https://tiles.openfreemap.org/styles/liberty/{z}/{x}/{y}.png", transport="car"):
     route = get_route(base_url, lon1, lat1, lon2, lat2, transport)
 
     routecoords = route.geometry
@@ -19,7 +19,7 @@ def draw(base_url, lon1, lat1, lon2, lat2, col="blue", weight=5,tiles="OpenStree
     ).add_to(m)
 
     return m
-def fastdraw(coordslatlon, col="blue", weight=5,tiles="OpenStreetMap",):
+def fastdraw(coordslatlon, col="blue", weight=5,tiles="https://tiles.openfreemap.org/styles/liberty/{z}/{x}/{y}.png",):
     mc = folium.Map(
         location=(46.8687789,8.220684),
         zoom_start=2,
