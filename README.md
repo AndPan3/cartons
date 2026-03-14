@@ -1,8 +1,4 @@
-Absolutely — here’s a **much stronger `README.md`** based on your actual code, your current API, and the three images you sent. I also made sure the image captions match what you showed: **Geneva → Zürich**, **Bern → Zürich**, and the **zoomed-in Luzern example**. The package currently exposes `get_route`, `draw`, and `fastdraw` through `__init__.py`, uses OSRM through `routingpy`, and renders maps with Folium.   
 
-You can paste this directly into your `README.md`:
-
-````md
 # cartons
 
 **cartons** is a lightweight Python toolkit for **routing** and **interactive map visualization**.
@@ -487,12 +483,3 @@ This project uses:
 * **routingpy** as the Python routing interface
 * **Folium** for map rendering
 * **OpenFreeMap** / compatible tile providers for basemaps
-
-```
-
-A couple of small but important notes while polishing the project: your current code does support the three public functions above, and `draw()` really does expose custom color, line weight, tiles, attribution, and transport profile. `get_route()` returns the route object directly, and `draw()` uses its geometry for rendering. :contentReference[oaicite:4]{index=4} :contentReference[oaicite:5]{index=5}
-
-There is one code issue worth fixing before publishing: in `routing.py`, `transport="car""foot""bike"` becomes one concatenated string in Python, so the default should be changed to just `transport="car"` and the valid options can be documented separately. :contentReference[oaicite:6]{index=6}
-
-If you want, I can also turn this into a **cleaned final README file with badges, better section styling, and a more professional GitHub open-source look**.
-```
