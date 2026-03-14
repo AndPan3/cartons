@@ -19,4 +19,4 @@ def draw(base_url, lon1, lat1, lon2, lat2, col="blue", weight=5,tiles="OpenStree
         weight=weight
     ).add_to(m)
 
-    return m
+    return m, route
