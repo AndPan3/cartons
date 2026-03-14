@@ -106,8 +106,8 @@ m = cartons.draw(
     8.5431302, 47.3668725,
     col="red",
     weight=5,
-    tiles="https://tiles.openfreemap.org/styles/liberty/{z}/{x}/{y}.png",
-    attribution="© OpenFreeMap contributors",
+    tiles="CartoDB Positron",
+    attribution="© CartoDB Positron",
     transport="car"
 )
 
@@ -226,8 +226,8 @@ cartons.draw(
     lat2,
     col="blue",
     weight=5,
-    tiles="https://tiles.openfreemap.org/styles/liberty/{z}/{x}/{y}.png",
-    attribution="© OpenFreeMap contributors",
+    tiles="CartoDB Positron",
+    attribution="© CartoDB Positron",
     transport="car"
 )
 ```
@@ -270,8 +270,8 @@ cartons.fastdraw(
     coordslatlon,
     col="blue",
     weight=5,
-    tiles="https://tiles.openfreemap.org/styles/liberty/{z}/{x}/{y}.png",
-    attribution="© OpenFreeMap contributors"
+    tiles="CartoDB Positron",
+    attribution="© CartoDB Positron"
 )
 ```
 
@@ -482,4 +482,4 @@ This project uses:
 * **OSRM** for route computation
 * **routingpy** as the Python routing interface
 * **Folium** for map rendering
-* **OpenFreeMap** / compatible tile providers for basemaps
+* **CartoDB Positron** / compatible tile providers for basemaps
