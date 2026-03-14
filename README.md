@@ -95,6 +95,7 @@ draw(base_url, lon1, lat1, lon2, lat2, color="blue", weight=5,tiles="OpenStreetM
 | color | Route line color |
 | weight | Route line thickness |
 | tiles | Map tiles |
+| attribution | attribution for the tiles (required in folium), else use OpenStreetMap|
 | transport | transportation mode for route generation|
 
 Returns:
