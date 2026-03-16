@@ -263,7 +263,8 @@ A `folium.Map` object.
 
 ## `fastdraw()`
 
-Draws a route directly from an existing list of coordinates.
+Draws a route directly from an existing list of coordinates. The pre-existing coordinates should be formatted like this:```python [lat,lon],[lat,lon],[lat,lon] and so on. 
+
 
 ```python
 cartons.fastdraw(
