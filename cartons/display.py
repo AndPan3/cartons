@@ -7,7 +7,6 @@ def draw(base_url, lon1, lat1, lon2, lat2, col="blue", weight=5,tiles="CartoDB P
     foliumcoords = [[lat, lon] for lon, lat in routecoords]
 
     m = folium.Map(
-        location=(lat1, lon1),
         tiles=tiles,
         attr=attribution,
         control_scale=True,
@@ -18,19 +17,23 @@ def draw(base_url, lon1, lat1, lon2, lat2, col="blue", weight=5,tiles="CartoDB P
         color=col,
         weight=weight
     ).add_to(m)
-
+    m.fit_bounds(foliumcoords)
     return m
+
 def fastdraw(coordslatlon, col="blue", weight=5,tiles="CartoDB Positron",attribution="© CartoDB Positron"):
+
     mc = folium.Map(
-        location=(46.8687789,8.220684),
         zoom_start=2,
         tiles=tiles,
         attr=attribution,
         control_scale=True,
     )
+    
     folium.PolyLine(
         coordslatlon,
         color=col,
         weight=weight
     ).add_to(mc)
+    mc.fit_bounds(coordslatlon)
+
     return mc
