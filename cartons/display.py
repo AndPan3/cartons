@@ -1,15 +1,30 @@
 from .routing import get_route
 import folium
-def draw(base_url, lon1, lat1, lon2, lat2, col="blue", weight=5,tiles="CartoDB Positron",attribution="© CartoDB Positron",transport=""):
+def draw(base_url, 
+         lon1, lat1, 
+         lon2, lat2, 
+         col="blue", weight=5,
+         tiles="CartoDB Positron",attribution="© CartoDB Positron",
+         transport="",
+         marker=True):
     route = get_route(base_url, lon1, lat1, lon2, lat2, transport)
 
     routecoords = route.geometry
     foliumcoords = [[lat, lon] for lon, lat in routecoords]
+    if get_route==True:
+            folium.marker(
+                 lat1,lon1
+            ).add_to(m)
+
+            folium.marker(
+                 lat2,lon2
+            ).add_to(m)
 
     m = folium.Map(
         tiles=tiles,
         attr=attribution,
         control_scale=True,
+
     )
 
     folium.PolyLine(
@@ -28,7 +43,7 @@ def fastdraw(coordslatlon, col="blue", weight=5,tiles="CartoDB Positron",attribu
         attr=attribution,
         control_scale=True,
     )
-    
+
     folium.PolyLine(
         coordslatlon,
         color=col,
