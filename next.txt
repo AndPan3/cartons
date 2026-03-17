@@ -1,7 +1,6 @@
 things to do in Cartons
   1. Find and debug
-  2. map centered in route, not CH ( fitbounds())
-  3. error handling
+  2. error handling
 
 features to add once stabilized:
   1. Export raw GeoJSON (mabye new function so it isint cluttured)
@@ -10,3 +9,6 @@ features to add once stabilized:
 
 features to add once (and if) project gets more popular
   1. Real time traffic
+
+done
+    1. map centered in route, not CH ( fitbounds())
