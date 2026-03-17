@@ -1,0 +1,8 @@
+things to do in Cartons
+  1. Find and debug
+  2. map centered in route, not CH ( fitbounds())
+
+features to add once stabilized:
+  1. Export raw GeoJSON
+  2. Multiple waypoints
+
