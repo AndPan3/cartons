@@ -1,6 +1,7 @@
 things to do in Cartons
   1. Find and debug
-  2. error handling
+  2. Add new file simpledraw, you just give coordinates and it gives a map, easier to use, more limitaton while draw allows better customisation
+  3. error handling
 
 features to add once stabilized:
   1. Export raw GeoJSON (mabye new function so it isint cluttured)
