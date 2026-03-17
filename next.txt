@@ -4,8 +4,9 @@ things to do in Cartons
   3. error handling
 
 features to add once stabilized:
-  1. Export raw GeoJSON
-  2. Multiple waypoints
+  1. Export raw GeoJSON (mabye new function so it isint cluttured)
+  2. Multiple waypoints (mabye new function so it isin't cluttered)
+  3. route alternatives (mabye make superroute function with multiple waypoints so it dosent have 5 functions and it stays a lightweit project, maby also new function)
 
 features to add once (and if) project gets more popular
   1. Real time traffic
