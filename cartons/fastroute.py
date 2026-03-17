@@ -1,9 +1,16 @@
 import folium
 from .routing import get_route
+
 def fastroute(
-        base_url,lon1,lat1,lon2,lat2,transport
+        base_url,
+        lon1,lat1,
+        lon2,lat2,
+        transport
 ):
-    route=get_route(base_url,lon1,lat1,lon2,lat2,transport)
+    route=get_route(base_url,
+                    lon1,lat1,
+                    lon2,lat2,
+                    transport)
 
     routecoords = route.geometry
     fastroutecoords = [[lat, lon] for lon, lat in routecoords]
