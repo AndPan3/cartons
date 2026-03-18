@@ -1,7 +1,7 @@
 import folium
 from .routing import get_route
 
-def fastroute(
+def simpleroute(
         base_url,
         lon1,lat1,
         lon2,lat2,
@@ -15,7 +15,7 @@ def fastroute(
     routecoords = route.geometry
     fastroutecoords = [[lat, lon] for lon, lat in routecoords]
 
-    m = folium.Map(
+    sm = folium.Map(
         tiles="CartoDB Positron",
         attr="Copyright: CartoDB Positron",
         control_scale=True,
@@ -26,6 +26,6 @@ def fastroute(
         fastroutecoords,
         color="red",
         weight=5
-    ).add_to(m)
-    m.fit_bounds(fastroutecoords)
-    return m
+    ).add_to(sm)
+    sm.fit_bounds(fastroutecoords)
+    return sm

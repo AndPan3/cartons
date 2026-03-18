@@ -35,7 +35,7 @@ def draw(base_url,
     m.fit_bounds(foliumcoords)
     return m
 
-def fastdraw(coordslatlon, col="blue", weight=5,tiles="CartoDB Positron",attribution="© CartoDB Positron"):
+def simpledraw(coordslatlon, col="blue", weight=5,tiles="CartoDB Positron",attribution="© CartoDB Positron"):
 
     mc = folium.Map(
         zoom_start=2,

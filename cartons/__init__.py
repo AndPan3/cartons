@@ -1,4 +1,4 @@
-from .routing import get_route
+from .routing import route
 from .display import draw
-from .display import fastdraw
-from .fastroute import fastroute
+from .display import simpledraw
+from .simpleroute import simpleroute
