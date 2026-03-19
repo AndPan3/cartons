@@ -1,4 +1,4 @@
-from .routing import get_route
+from .routing import route
 import folium
 def draw(base_url, 
          lon1, lat1, 
