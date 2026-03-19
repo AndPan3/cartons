@@ -1,6 +1,6 @@
 
 # cartons
-
+![Downloads](https://img.shields.io/pypi/dm/cartons?style=flat)
 **cartons** is a lightweight Python toolkit for **routing** and **interactive map visualization**.
 
 It combines the power of **OSRM** (Open Source Routing Machine) for route calculation with **Folium** for rendering beautiful interactive maps in HTML. With only a few lines of Python, you can calculate a route between two coordinates, extract route data such as geometry, distance, and duration, and display the result on a slippy map.
