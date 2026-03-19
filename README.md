@@ -1,5 +1,7 @@
 
 # cartons
+[![PyPI version](https://img.shields.io/pypi/v/cartons.svg)](https://pypi.org/project/cartons/)
+[![License](https://img.shields.io/github/license/AndPan3/cartons)](https://github.com/AndPan3/cartons/blob/main/LICENSE)
 ![Downloads](https://img.shields.io/pypi/dm/cartons?style=flat)
 
 **cartons** is a lightweight Python toolkit for **routing** and **interactive map visualization**.
