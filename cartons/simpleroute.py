@@ -1,5 +1,5 @@
 import folium
-from .routing import get_route
+from .routing import route
 
 def simpleroute(
         base_url,
@@ -7,7 +7,7 @@ def simpleroute(
         lon2,lat2,
         transport
 ):
-    route=get_route(base_url,
+    route=route(base_url,
                     lon1,lat1,
                     lon2,lat2,
                     transport)
