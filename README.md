@@ -130,7 +130,7 @@ The workflow is simple:
 ```text
 Coordinates
     ↓
-cartons.get_route()
+cartons.route()
     ↓
 OSRM route calculation
     ↓
@@ -149,9 +149,9 @@ Interactive HTML output
 
 The package exposes these functions:
 
-* `cartons.get_route(...)`
+* `cartons.route(...)`
 * `cartons.draw(...)`
-* `cartons.fastdraw(...)`
+* `cartons.simpledraw(...)`
 
 These are imported in the package root, so they are available directly after `import cartons`. 
 
@@ -159,12 +159,12 @@ These are imported in the package root, so they are available directly after `im
 
 ## API Reference
 
-## `get_route()`
+## `route()`
 
 Calculates a route using an OSRM server and returns the full route object.
 
 ```python
-cartons.get_route(base_url, lon1, lat1, lon2, lat2, transport="car")
+cartons.route(base_url, lon1, lat1, lon2, lat2, transport="car")
 ```
 
 ### Parameters
@@ -195,7 +195,7 @@ Typical useful properties include:
 ```python
 import cartons
 
-route = cartons.get_route(
+route = cartons.route(
     "https://router.project-osrm.org",
     7.4442153, 46.94686,
     8.5431302, 47.3668725,
@@ -232,6 +232,7 @@ cartons.draw(
     tiles="CartoDB Positron",
     attribution="© CartoDB Positron",
     transport="car"
+    marker=True
 )
 ```
 
@@ -249,6 +250,7 @@ cartons.draw(
 | `tiles`       | Tile source used by Folium             |
 | `attribution` | Attribution text for the tile provider |
 | `transport`   | Routing profile used by OSRM           |
+| `marker`      |Boolean used if you want Markers at start/end coords.|
 
 ### Returns
 
@@ -256,7 +258,7 @@ A `folium.Map` object.
 
 ### What it does internally
 
-* calls `get_route(...)`
+* calls `route(...)`
 * reads `route.geometry`
 * converts OSRM coordinate order into Folium coordinate order
 * draws the route as a `folium.PolyLine`
@@ -264,13 +266,13 @@ A `folium.Map` object.
 
 ---
 
-## `fastdraw()`
+## `simpledraw()`
 
 Draws a route directly from an existing list of coordinates. The pre-existing coordinates should be formatted like this:```python [lat,lon],[lat,lon],[lat,lon]```and so on. 
 
 
 ```python
-cartons.fastdraw(
+cartons.simpledraw(
     coordslatlon,
     col="blue",
     weight=5,
@@ -293,9 +295,9 @@ cartons.fastdraw(
 
 A `folium.Map` object.
 
-### When to use `fastdraw()`
+### When to use `simpledraw()`
 
-Use `fastdraw()` when:
+Use `simpledraw()` when:
 
 * you already have route coordinates
 * you want to visualize custom paths
@@ -305,13 +307,52 @@ Use `fastdraw()` when:
 ---
 
 ## Examples
+## `simpleroute()`
+
+Calculates a route and immediately draws it on a Folium map but with less customisation and therefore less code.
+
+```python
+cartons.draw(
+    base_url,
+    lon1,
+    lat1,
+    lon2,
+    lat2,
+    transport="car"
+)
+```
+
+### Parameters
+
+| Parameter     | Description                            |
+| ------------- | -------------------------------------- |
+| `base_url`    | URL of the OSRM routing server         |
+| `lon1`        | Longitude of the start point           |
+| `lat1`        | Latitude of the start point            |
+| `lon2`        | Longitude of the destination           |
+| `lat2`        | Latitude of the destination            |
+| `transport`   | Routing profile used by OSRM           |
+
+### Returns
+
+A `folium.Map` object.
+
+### What it does internally
+
+* calls `route(...)`
+* reads `route.geometry`
+* converts OSRM coordinate order into Folium coordinate order
+* draws the route as a `folium.PolyLine`
+* returns the map object
+
+---
 
 ## 1. Calculate a route and inspect metadata
 
 ```python
 import cartons
 
-route = cartons.get_route(
+route = cartons.route(
     "https://router.project-osrm.org",
     6.143158, 46.204391,   # Geneva
     8.541694, 47.376887,   # Zürich
@@ -355,7 +396,7 @@ coords = [
     [47.3668725, 8.5431302]
 ]
 
-m = cartons.fastdraw(coords, col="red", weight=5)
+m = cartons.simpledraw(coords, col="red", weight=5)
 m.save("custom_route.html")
 ```
 
@@ -397,6 +438,7 @@ Instead of being a huge GIS framework, `cartons` focuses on doing a small number
 cartons/
 ├── __init__.py
 ├── routing.py
+├── simpleroute.py
 └── display.py
 ```
 
@@ -407,6 +449,10 @@ Handles route calculation through OSRM.
 ### `display.py`
 
 Handles map creation and route drawing through Folium.
+
+### `simpleroute.py`
+
+Same as display.py but for simpleroute.
 
 ### `__init__.py`
 
@@ -437,22 +483,14 @@ pip install -e .
 * the public demo server is great for testing, but production use may require your own server
 * returned route data depends on the routing backend and profile used
 * `draw()` is best when you want a full route calculation and visualization in one step
-* `fastdraw()` is best when you already have coordinates
+* `simpledraw()` is best when you already have coordinates
+* `simpleroute()`is best for easy routing and map display.
 
 ---
 
 ## Roadmap Ideas
 
-Possible future improvements:
-
-* markers for start and end points
-* multiple waypoints
-* turn-by-turn instructions
-* optional automatic map fitting to route bounds
-* popup summaries with distance and duration
-* GeoJSON export
-* route alternatives
-* batch route generation
+now availiable under otherfiles/next.txt
 
 ---
 
