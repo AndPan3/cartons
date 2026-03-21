@@ -7,7 +7,7 @@ def simpleroute(
         lon2,lat2,
         transport
 ):
-    route=route(base_url,
+    getroute=route(base_url,
                     lon1,lat1,
                     lon2,lat2,
                     transport)

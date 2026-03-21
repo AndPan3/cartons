@@ -7,7 +7,7 @@ def draw(base_url,
          tiles="CartoDB Positron",attribution="© CartoDB Positron",
          transport="",
          marker=True):
-    route = route(base_url, lon1, lat1, lon2, lat2, transport)
+    getroute=route(base_url, lon1, lat1, lon2, lat2, transport)
 
     routecoords = route.geometry
     foliumcoords = [[lat, lon] for lon, lat in routecoords]
