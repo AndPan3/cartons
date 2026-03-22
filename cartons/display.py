@@ -5,7 +5,7 @@ def draw(base_url,
          lon2, lat2, 
          col="blue", weight=5,
          tiles="CartoDB Positron",attribution="© CartoDB Positron",
-         transport="",
+         transport: str = "car",
          marker=True):
     getroute=route(base_url, lon1, lat1, lon2, lat2, transport)
 
