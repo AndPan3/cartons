@@ -9,16 +9,8 @@ def draw(base_url,
          marker=True):
     getroute=route(base_url, lon1, lat1, lon2, lat2, transport)
 
-    routecoords = route.geometry
+    routecoords = getroute.geometry
     foliumcoords = [[lat, lon] for lon, lat in routecoords]
-    if route==True:
-            folium.marker(
-                 lat1,lon1
-            ).add_to(m)
-
-            folium.marker(
-                 lat2,lon2
-            ).add_to(m)
 
     m = folium.Map(
         tiles=tiles,
@@ -26,6 +18,9 @@ def draw(base_url,
         control_scale=True,
 
     )
+    if marker==True:
+        folium.Marker([lat1, lon1]).add_to(m)
+        folium.Marker([lat2, lon2]).add_to(m)
 
     folium.PolyLine(
         foliumcoords,
