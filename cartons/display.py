@@ -1,13 +1,12 @@
 from .routing import route
 import folium
 def draw(base_url, 
-         lon1, lat1, 
-         lon2, lat2, 
+         coords_lon_lat, 
          col="blue", weight=5,
          tiles="CartoDB Positron",attribution="© CartoDB Positron",
          transport: str = "car",
          marker=True):
-    getroute=route(base_url, lon1, lat1, lon2, lat2, transport)
+    getroute=route(base_url, coords_lon_lat, transport)
 
     routecoords = getroute.geometry
     foliumcoords = [[lat, lon] for lon, lat in routecoords]
