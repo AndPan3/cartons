@@ -1,7 +1,7 @@
 from .routing import route
 import folium
 def draw(base_url, 
-         coords_lon_lat, 
+         coords_lon_lat:[], 
          col="blue", weight=5,
          tiles="CartoDB Positron",attribution="© CartoDB Positron",
          transport: str = "car",
