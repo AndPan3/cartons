@@ -3,8 +3,7 @@ from .routing import route
 
 def simpleroute(
         base_url,
-        lon1,lat1,
-        lon2,lat2,
+        coords_lon_lat:[],
         transport: str="car"
 ):
     getroute=route(base_url,
