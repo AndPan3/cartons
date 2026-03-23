@@ -1,7 +1,7 @@
 from .routing import route
 import folium
 def draw(base_url, 
-         coords_lon_lat:[], 
+         coords_lon_lat: list, 
          col="blue", weight=5,
          tiles="CartoDB Positron",attribution="© CartoDB Positron",
          transport: str = "car",
@@ -17,9 +17,7 @@ def draw(base_url,
         control_scale=True,
 
     )
-    if marker==True:
-        folium.Marker([lat1, lon1]).add_to(m)
-        folium.Marker([lat2, lon2]).add_to(m)
+
 
     folium.PolyLine(
         foliumcoords,

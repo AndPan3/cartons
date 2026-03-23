@@ -1,6 +1,8 @@
 from routingpy import OSRM
 
-def route(base_url,coords_lon_lat:[], transport):
+def route(base_url,
+        coords_lon_lat:list,
+        transport):
     router = OSRM(base_url=base_url)
     coords = coords_lon_lat
     
