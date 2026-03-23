@@ -1,14 +1,12 @@
 from routingpy import OSRM
 
-def route(base_url, lon1, lat1, lon2,lat2, transport):
+def route(base_url,coords_lon_lat:[], transport):
     router = OSRM(base_url=base_url)
-    coords = [
-        (lon1, lat1),
-        (lon2, lat2)]
+    coords = [coords]
     
     route = router.directions(
         overview = "full",
         profile = transport,
-        locations = coords,
+        locations = coords_lon_lat,
     )
     return route
