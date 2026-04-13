@@ -4,7 +4,7 @@ from .routing import route
 def simpleroute(
         base_url,
         coords_lon_lat:list,
-        transport: str="car"
+        transport: str
 ):
     getroute=route(base_url,
                     coords_lon_lat,
