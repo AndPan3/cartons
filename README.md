@@ -3,9 +3,8 @@
 [![PyPI version](https://img.shields.io/pypi/v/cartons.svg)](https://pypi.org/project/cartons/)
 [<image-card alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" ></image-card>](https://github.com/AndPan3/cartons/blob/main/LICENSE)
 ![Downloads](https://img.shields.io/pypi/dm/cartons?style=flat)
-
+**readme is outdated, ill update it in a few days-weeks**
 **cartons** is a lightweight Python toolkit for **routing** and **interactive map visualization**.
-readme is outdated, ill update it in a few days-weeks
 It combines the power of **OSRM** (Open Source Routing Machine) for route calculation with **Folium** for rendering beautiful interactive maps in HTML. With only a few lines of Python, you can calculate a route between two coordinates, extract route data such as geometry, distance, and duration, and display the result on a slippy map.
 
 ---
