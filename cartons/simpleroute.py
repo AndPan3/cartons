@@ -3,11 +3,11 @@ from .routing import route
 
 def simpleroute(
         base_url,
-        coords_lon_lat:list,
+        coords:list,
         transport: str
 ):
     getroute=route(base_url,
-                    coords_lon_lat,
+                    coords,
                     transport)
 
     routecoords = route.geometry
