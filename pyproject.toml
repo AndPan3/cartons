@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cartons"
-version = "1.2.0"
+version = "1.2.1"
 description = "Simple OSRM routing and Folium map drawing toolkit"
 readme = "README.md"
 requires-python = ">=3.7"
@@ -13,7 +13,8 @@ keywords = ["osrm", "routing", "maps", "folium", "geospatial"]
 
 dependencies = [
   "routingpy",
-  "folium"
+  "folium",
+  "shapely"
 ]
 
 classifiers = [
