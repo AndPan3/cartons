@@ -7,7 +7,7 @@ name = "cartons"
 version = "1.2.1"
 description = "Simple OSRM routing and Folium map drawing toolkit"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 
 keywords = ["osrm", "routing", "maps", "folium", "geospatial"]
 
