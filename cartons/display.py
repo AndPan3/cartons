@@ -7,15 +7,18 @@ def map_route(base_url,
          tiles:str,attribution:str,
          osrm_profile: str,
          marker: bool= True):
-    getroute=route(base_url, coords, osrm_profile)
     
+    if len(coords)>2:
+        raise ValueError("Atleast 2 coordinates are required.")
+    
+    getroute=route(base_url, coords, osrm_profile)
     routecoords = getroute.geometry
-    foliumcoords = _to_folium(routecoords)    #create_map
+    foliumcoords = _to_folium(routecoords) 
+    #create_map
     m = folium.Map(
         tiles=tiles,
         attr=attribution,
         control_scale=True,
-
     )
     _markers(marker, foliumcoords, m)
     
@@ -28,7 +31,8 @@ def map_route(base_url,
     return m
 
 def draw(coords: Coordinates, color="blue", weight=5,tiles="CartoDB Positron",attribution="© CartoDB Positron"):
-
+    if len(coords)>2:
+        raise ValueError("Atleast 2 coordinates are required.")
     mc = folium.Map(
         zoom_start=2,
         tiles=tiles,

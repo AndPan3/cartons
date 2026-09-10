@@ -7,6 +7,9 @@ def quick_map(
         coords: Coordinates,
         osrm_profile: str
 ):
+    if len(coords)>2:
+        raise ValueError("Atleast 2 coordinates are required.")
+    
     getroute=route(base_url,
                     coords,
                     osrm_profile)
