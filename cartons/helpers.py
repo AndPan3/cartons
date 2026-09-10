@@ -11,6 +11,9 @@ def _markers(marker: bool, foliumcoords, m):
          folium.Marker(
              location = foliumcoords[-1]
          ).add_to(m)
-         
+
+def _warning_coords(coords):
+    if len(coords)<2:
+        raise ValueError("At least 2 coordinates are required.")
 Coordinate = Sequence[float]
 Coordinates = Sequence[Coordinate]

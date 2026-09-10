@@ -1,15 +1,13 @@
 import folium
 from .routing import route
-from.helpers import Coordinates, _to_folium
+from.helpers import Coordinates, _to_folium, _warning_coords
 
 def quick_map(
         base_url,
         coords: Coordinates,
         osrm_profile: str
 ):
-    if len(coords)>2:
-        raise ValueError("Atleast 2 coordinates are required.")
-    
+    _warning_coords(coords)
     getroute=route(base_url,
                     coords,
                     osrm_profile)
