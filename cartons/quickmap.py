@@ -1,18 +1,18 @@
 import folium
 from .routing import route
+from.helpers import Coordinates, _to_folium
 
-def simpleroute(
+def quick_map(
         base_url,
-        coords:list,
-        transport: str
+        coords: Coordinates,
+        osrm_profile: str
 ):
     getroute=route(base_url,
                     coords,
-                    transport)
+                    osrm_profile)
 
     routecoords = getroute.geometry
-    fastroutecoords = [[lat, lon] for lon, lat in routecoords]
-
+    foliumcoords = _to_folium(routecoords)
     sm = folium.Map(
         tiles="CartoDB Positron",
         attr="Copyright: CartoDB Positron",
@@ -21,9 +21,9 @@ def simpleroute(
     )
 
     folium.PolyLine(
-        fastroutecoords,
-        color="red",
+        foliumcoords,
+        colour="red",
         weight=5
     ).add_to(sm)
-    sm.fit_bounds(fastroutecoords)
+    sm.fit_bounds(foliumcoords)
     return sm

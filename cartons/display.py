@@ -1,40 +1,33 @@
 from .routing import route
 import folium
-def draw(base_url, 
-         coords: list, 
-         col:str, weight:str,
+from .helpers import Coordinates, _to_folium, _markers
+def map_route(base_url, 
+         coords: Coordinates, 
+         color:str, weight:int,
          tiles:str,attribution:str,
-         transport: str,
-         marker=True):
-    getroute=route(base_url, coords, transport)
+         osrm_profile: str,
+         marker: bool= True):
+    getroute=route(base_url, coords, osrm_profile)
     
     routecoords = getroute.geometry
-    foliumcoords = [[lat, lon] for lon, lat in routecoords]
-    #create_map
+    foliumcoords = _to_folium(routecoords)    #create_map
     m = folium.Map(
         tiles=tiles,
         attr=attribution,
         control_scale=True,
 
     )
-    #markers
-    if marker == True:
-         folium.Marker(
-             location = foliumcoords[0]
-         ).add_to(m)
-         folium.Marker(
-             location = foliumcoords[-1]
-         ).add_to(m)
-         
+    _markers(marker, foliumcoords, m)
+    
     folium.PolyLine(
         foliumcoords,
-        color=col,
+        color=color,
         weight=weight
     ).add_to(m)
     m.fit_bounds(foliumcoords)
     return m
 
-def simpledraw(coords: list, col="blue", weight=5,tiles="CartoDB Positron",attribution="© CartoDB Positron"):
+def draw(coords: Coordinates, color="blue", weight=5,tiles="CartoDB Positron",attribution="© CartoDB Positron"):
 
     mc = folium.Map(
         zoom_start=2,
@@ -45,7 +38,7 @@ def simpledraw(coords: list, col="blue", weight=5,tiles="CartoDB Positron",attri
 
     folium.PolyLine(
         coords,
-        color=col,
+        color=color,
         weight=weight
     ).add_to(mc)
     mc.fit_bounds(coords)

@@ -1,14 +1,15 @@
 from routingpy import OSRM
 from shapely.geometry import LineString
+from .helpers import Coordinates
 
 def route(base_url,
-        coords:list,
-        transport):
+        coords: Coordinates,
+        osrm_profile: str):
     router = OSRM(base_url=base_url)
     
     route = router.directions(
         overview = "full",
-        profile = transport,
+        profile = osrm_profile,
         locations = coords
     )
     return route
