@@ -1,0 +1,42 @@
+name: Cartons CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  smoke-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Install Cartons from this commit
+        run: python -m pip install .
+
+      - name: Test public imports
+        run: python otherfiles/Testing/imports.py
+
+      - name: Test route
+        run: python otherfiles/Testing/route.py
+
+      - name: Test map_route
+        run: python otherfiles/Testing/map_route.py
+
+      - name: Test quick_map
+        run: python otherfiles/Testing/quickmap.py
+
+      - name: Test draw
+        run: python otherfiles/Testing/draw.py
+
+      - name: Test formats
+        run: python otherfiles/Testing/formats.py
