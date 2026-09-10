@@ -5,7 +5,7 @@ def draw(base_url,
          col:str, weight:str,
          tiles:str,attribution:str,
          transport: str,
-         marker=bool):
+         marker=True):
     getroute=route(base_url, coords, transport)
     
     routecoords = getroute.geometry
@@ -20,10 +20,10 @@ def draw(base_url,
     #markers
     if marker == True:
          folium.Marker(
-             location = coords[0]
+             location = foliumcoords[0]
          ).add_to(m)
          folium.Marker(
-             location = coords[-1]
+             location = foliumcoords[-1]
          ).add_to(m)
          
     folium.PolyLine(

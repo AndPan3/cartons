@@ -10,7 +10,7 @@ def simpleroute(
                     coords,
                     transport)
 
-    routecoords = route.geometry
+    routecoords = getroute.geometry
     fastroutecoords = [[lat, lon] for lon, lat in routecoords]
 
     sm = folium.Map(
