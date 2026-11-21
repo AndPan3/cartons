@@ -1,6 +1,6 @@
 import folium
 from .routing import route
-from.helpers import Coordinates, _to_folium, _warning_coords
+from .helpers import Coordinates, _to_folium, _warning_coords
 
 def quick_map(
         base_url,
@@ -16,14 +16,14 @@ def quick_map(
     foliumcoords = _to_folium(routecoords)
     sm = folium.Map(
         tiles="OpenStreetMap",
-        attr="Copyright: CartoDB Positron",
+        attr="Copyright: OpenStreetMap and OSM Contributors",
         control_scale=True,
 
     )
 
     folium.PolyLine(
         foliumcoords,
-        colour="red",
+        color="red",
         weight=5
     ).add_to(sm)
     sm.fit_bounds(foliumcoords)
