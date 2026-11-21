@@ -15,7 +15,7 @@ def quick_map(
     routecoords = getroute.geometry
     foliumcoords = _to_folium(routecoords)
     sm = folium.Map(
-        tiles="CartoDB Positron",
+        tiles="OpenStreetMap",
         attr="Copyright: CartoDB Positron",
         control_scale=True,
 
